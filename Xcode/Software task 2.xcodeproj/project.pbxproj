@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112F5E3829DE30CE00D37173 /* Software_task_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F5E3729DE30CE00D37173 /* Software_task_2App.swift */; };
 		112F5E3A29DE30CE00D37173 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F5E3929DE30CE00D37173 /* ContentView.swift */; };
 		112F5E3C29DE30CF00D37173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112F5E3B29DE30CF00D37173 /* Assets.xcassets */; };
 		112F5E4029DE30CF00D37173 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112F5E3F29DE30CF00D37173 /* Preview Assets.xcassets */; };
-		112F5E4A29DE30D000D37173 /* Software_task_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F5E4929DE30D000D37173 /* Software_task_2Tests.swift */; };
-		112F5E5429DE30D000D37173 /* Software_task_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F5E5329DE30D000D37173 /* Software_task_2UITests.swift */; };
-		112F5E5629DE30D000D37173 /* Software_task_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112F5E5529DE30D000D37173 /* Software_task_2UITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +31,12 @@
 
 /* Begin PBXFileReference section */
 		112F5E3429DE30CE00D37173 /* Software task 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Software task 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		112F5E3729DE30CE00D37173 /* Software_task_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software_task_2App.swift; sourceTree = "<group>"; };
 		112F5E3929DE30CE00D37173 /* ContentView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; path = ContentView.swift; sourceTree = "<group>"; };
 		112F5E3B29DE30CF00D37173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		112F5E3D29DE30CF00D37173 /* Software_task_2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Software_task_2.entitlements; sourceTree = "<group>"; };
 		112F5E3F29DE30CF00D37173 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		112F5E4529DE30D000D37173 /* Software task 2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Software task 2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		112F5E4929DE30D000D37173 /* Software_task_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software_task_2Tests.swift; sourceTree = "<group>"; };
 		112F5E4F29DE30D000D37173 /* Software task 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Software task 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		112F5E5329DE30D000D37173 /* Software_task_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software_task_2UITests.swift; sourceTree = "<group>"; };
-		112F5E5529DE30D000D37173 /* Software_task_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Software_task_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				112F5E3629DE30CE00D37173 /* Software task 2 */,
-				112F5E4829DE30D000D37173 /* Software task 2Tests */,
-				112F5E5229DE30D000D37173 /* Software task 2UITests */,
 				112F5E3529DE30CE00D37173 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,7 +85,6 @@
 		112F5E3629DE30CE00D37173 /* Software task 2 */ = {
 			isa = PBXGroup;
 			children = (
-				112F5E3729DE30CE00D37173 /* Software_task_2App.swift */,
 				112F5E3929DE30CE00D37173 /* ContentView.swift */,
 				112F5E3B29DE30CF00D37173 /* Assets.xcassets */,
 				112F5E3D29DE30CF00D37173 /* Software_task_2.entitlements */,
@@ -110,23 +99,6 @@
 				112F5E3F29DE30CF00D37173 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		112F5E4829DE30D000D37173 /* Software task 2Tests */ = {
-			isa = PBXGroup;
-			children = (
-				112F5E4929DE30D000D37173 /* Software_task_2Tests.swift */,
-			);
-			path = "Software task 2Tests";
-			sourceTree = "<group>";
-		};
-		112F5E5229DE30D000D37173 /* Software task 2UITests */ = {
-			isa = PBXGroup;
-			children = (
-				112F5E5329DE30D000D37173 /* Software_task_2UITests.swift */,
-				112F5E5529DE30D000D37173 /* Software_task_2UITestsLaunchTests.swift */,
-			);
-			path = "Software task 2UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				112F5E3A29DE30CE00D37173 /* ContentView.swift in Sources */,
-				112F5E3829DE30CE00D37173 /* Software_task_2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112F5E4A29DE30D000D37173 /* Software_task_2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112F5E5429DE30D000D37173 /* Software_task_2UITests.swift in Sources */,
-				112F5E5629DE30D000D37173 /* Software_task_2UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +453,6 @@
 		112F5E5D29DE30D000D37173 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -508,7 +475,6 @@
 		112F5E5E29DE30D000D37173 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -531,7 +497,6 @@
 		112F5E6029DE30D000D37173 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKMY679QHC;
@@ -553,7 +518,6 @@
 		112F5E6129DE30D000D37173 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKMY679QHC;
