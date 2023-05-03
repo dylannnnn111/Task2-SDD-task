@@ -4,7 +4,7 @@ body {
     padding: 0;
  }
  
- 
+
  header {
     background-color: #333;
     color: #fff;
@@ -41,7 +41,7 @@ body {
  }
  
  
- .hero {
+ /* .hero {
     background-image: url(https://www.example.com/image.jpg);
     background-size: cover;
     background-position: center;
@@ -51,7 +51,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 50vh;
- }
+ } */
  
  
  .hero h2 {
