@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     var apiKey = "644f2b75347d438b8eda2eed10c93404";
-    ?apiKey=644f2b75347d438b8eda2eed10c93404;
     var url = "https://api.spoonacular.com/recipes/complexSearch";  // replace with the actual API URL
 
     fetch(url, {
