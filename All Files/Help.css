@@ -1,34 +1,107 @@
-xbody {
+/* style.css */
+
+body {
     font-family: Arial, sans-serif;
-}
-
-header {
-    background-color: #ff7f50;
-    color: white;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    color: #fff;
     text-align: center;
-}
-
-main {
-    padding: 20px;
-}
-
-#faq {
-    background-color: #f8f8f8;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.faq-item {
-    margin-bottom: 20px;
-}
-
-footer {
-    background-color: #ff7f50;
-    color: white;
+    margin: 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+  }
+  
+  nav ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  nav li {
+    display: inline;
+  }
+  
+  nav a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  .hero {
+    background-color: #f4f4f4;
+    padding: 2rem;
     text-align: center;
-    padding: 10px;
-    position: fixed;
+  }
+  
+  .hero h2 {
+    margin: 0;
+  }
+  
+  .recipes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+  
+  .recipe-card {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-card img {
     width: 100%;
-    bottom: 0;
-}
+    height: auto;
+  }
+  
+  .recipe-card h3 {
+    margin: 0.5rem 0;
+  }
+  
+  .button {
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .about {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
