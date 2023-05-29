@@ -9,12 +9,12 @@ body {
   }
   
   header {
-    background-color: #ffffff;
+    background-color: #4CAF50;
     padding: 1rem;
   }
   
   header h1 {
-    color: #000000;
+    color: #fff;
     text-align: center;
     margin: 0;
   }
