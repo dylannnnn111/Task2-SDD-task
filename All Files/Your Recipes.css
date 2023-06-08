@@ -1,8 +1,11 @@
 /* Reset default margin and padding */
-body, ul {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
+    line-height: 1.6;
+    color: #333;
+  }
 
 header {
     background-color: #ffffff;
@@ -35,7 +38,7 @@ nav a {
     display: inline-block;
     color: #fff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
 }
 
 nav a:hover {
