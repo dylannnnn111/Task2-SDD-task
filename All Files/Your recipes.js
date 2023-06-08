@@ -6,6 +6,18 @@ const recentRecipesContainer = document.querySelector('.recent-recipes');
 function deleteRecipe(event) {
   const recipeCard = event.target.parentNode;
   recentRecipesContainer.removeChild(recipeCard);
+  saveRecipes();
+}
+
+// Function to save recipes in local storage
+function saveRecipes() {
+  const recipes = Array.from(recentRecipesContainer.children).map(recipeCard => {
+    return {
+      name: recipeCard.querySelector('h3').textContent,
+      description: recipeCard.querySelector('p').textContent
+    };
+  });
+  localStorage.setItem('recipes', JSON.stringify(recipes));
 }
 
 // Add event listener for form submission
@@ -21,15 +33,15 @@ addRecipeForm.addEventListener('submit', function(event) {
   // Create a new recipe card
   const recipeCard = document.createElement('div');
   recipeCard.className = 'recipe-card';
-  
+
   const recipeNameHeading = document.createElement('h3');
   recipeNameHeading.textContent = recipeName;
   recipeCard.appendChild(recipeNameHeading);
-  
+
   const recipeDescriptionParagraph = document.createElement('p');
   recipeDescriptionParagraph.textContent = recipeDescription;
   recipeCard.appendChild(recipeDescriptionParagraph);
-  
+
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
   deleteButton.className = 'delete-button';
@@ -45,11 +57,8 @@ addRecipeForm.addEventListener('submit', function(event) {
   recipeNameInput.value = '';
   recipeDescriptionInput.value = '';
 
-  // Save the recipe information locally
-  const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
-  const recipe = { name: recipeName, description: recipeDescription };
-  recipes.push(recipe);
-  localStorage.setItem('recipes', JSON.stringify(recipes));
+  // Save the recipes in local storage
+  saveRecipes();
 });
 
 // Load saved recipes on page load
@@ -58,22 +67,22 @@ window.addEventListener('load', function() {
   recipes.forEach(function(recipe) {
     const recipeCard = document.createElement('div');
     recipeCard.className = 'recipe-card';
-  
+
     const recipeNameHeading = document.createElement('h3');
     recipeNameHeading.textContent = recipe.name;
     recipeCard.appendChild(recipeNameHeading);
-  
+
     const recipeDescriptionParagraph = document.createElement('p');
     recipeDescriptionParagraph.textContent = recipe.description;
     recipeCard.appendChild(recipeDescriptionParagraph);
-  
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'delete-button';
     recipeCard.appendChild(deleteButton);
-  
+
     deleteButton.addEventListener('click', deleteRecipe);
-  
+
     recentRecipesContainer.appendChild(recipeCard);
   });
 });
