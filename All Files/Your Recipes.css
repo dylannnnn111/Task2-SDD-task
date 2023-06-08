@@ -9,7 +9,7 @@ body {
 
 header {
     background-color: #ffffff;
-    padding: 1rem;
+    padding: 0.25, 1rem;
 }
 
 header h1 {
@@ -38,7 +38,7 @@ nav a {
     display: inline-block;
     color: #fff;
     text-decoration: none;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 nav a:hover {
