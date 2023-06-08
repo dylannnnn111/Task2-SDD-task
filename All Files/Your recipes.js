@@ -1,29 +1,79 @@
-document.getElementById('add-recipe-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    
-    // Get the values from the form inputs
-    var recipeName = document.getElementById('recipe-name').value;
-    var recipeDescription = document.getElementById('recipe-description').value;
-    
-    // Create a new recipe card
-    var recipeCard = document.createElement('div');
-    recipeCard.classList.add('recipe-card');
-    
-    var recipeHeading = document.createElement('h3');
-    recipeHeading.textContent = recipeName;
-    
-    var recipePara = document.createElement('p');
-    recipePara.textContent = recipeDescription;
-    
-    recipeCard.appendChild(recipeHeading);
-    recipeCard.appendChild(recipePara);
-    
-    // Add the recipe card to the recent recipes section
-    var recentRecipes = document.querySelector('.recent-recipes');
-    recentRecipes.appendChild(recipeCard);
-    
-    // Reset the form inputs
-    document.getElementById('recipe-name').value = '';
-    document.getElementById('recipe-description').value = '';
-  });
+// Get the form and recent-recipes container elements
+const addRecipeForm = document.getElementById('add-recipe-form');
+const recentRecipesContainer = document.querySelector('.recent-recipes');
+
+// Function to delete a recipe
+function deleteRecipe(event) {
+  const recipeCard = event.target.parentNode;
+  recentRecipesContainer.removeChild(recipeCard);
+}
+
+// Add event listener for form submission
+addRecipeForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get the recipe name and description values from the form
+  const recipeNameInput = document.getElementById('recipe-name');
+  const recipeDescriptionInput = document.getElementById('recipe-description');
+  const recipeName = recipeNameInput.value;
+  const recipeDescription = recipeDescriptionInput.value;
+
+  // Create a new recipe card
+  const recipeCard = document.createElement('div');
+  recipeCard.className = 'recipe-card';
   
+  const recipeNameHeading = document.createElement('h3');
+  recipeNameHeading.textContent = recipeName;
+  recipeCard.appendChild(recipeNameHeading);
+  
+  const recipeDescriptionParagraph = document.createElement('p');
+  recipeDescriptionParagraph.textContent = recipeDescription;
+  recipeCard.appendChild(recipeDescriptionParagraph);
+  
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.className = 'delete-button';
+  recipeCard.appendChild(deleteButton);
+
+  // Add event listener for delete button
+  deleteButton.addEventListener('click', deleteRecipe);
+
+  // Add the recipe card to the recent-recipes container
+  recentRecipesContainer.appendChild(recipeCard);
+
+  // Clear the input fields after adding the recipe
+  recipeNameInput.value = '';
+  recipeDescriptionInput.value = '';
+
+  // Save the recipe information locally
+  const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  const recipe = { name: recipeName, description: recipeDescription };
+  recipes.push(recipe);
+  localStorage.setItem('recipes', JSON.stringify(recipes));
+});
+
+// Load saved recipes on page load
+window.addEventListener('load', function() {
+  const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  recipes.forEach(function(recipe) {
+    const recipeCard = document.createElement('div');
+    recipeCard.className = 'recipe-card';
+  
+    const recipeNameHeading = document.createElement('h3');
+    recipeNameHeading.textContent = recipe.name;
+    recipeCard.appendChild(recipeNameHeading);
+  
+    const recipeDescriptionParagraph = document.createElement('p');
+    recipeDescriptionParagraph.textContent = recipe.description;
+    recipeCard.appendChild(recipeDescriptionParagraph);
+  
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-button';
+    recipeCard.appendChild(deleteButton);
+  
+    deleteButton.addEventListener('click', deleteRecipe);
+  
+    recentRecipesContainer.appendChild(recipeCard);
+  });
+});
