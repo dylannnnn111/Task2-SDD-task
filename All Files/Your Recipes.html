@@ -41,7 +41,6 @@
     <div class="recent-recipes">
       <!-- Recipe cards will be dynamically added here -->
     </div>
-
     <h2>Add Recipe</h2>
     <form id="add-recipe-form">
       <label for="recipe-name">Recipe Name:</label>
@@ -53,18 +52,27 @@
       <button type="submit">Add Recipe</button>
     </form>
 
-    <button id="expand-page-button">View Recipes</button>
-    <button type="submit" onclick="storeRecipe()">Add Recipe</button>
+    <!-- Remove the Add Recipe and View Recipes buttons here -->
 
   </div>
-
-
 
   <footer>
     <p>&copy; 2023 Recipe Website</p>
   </footer>
 
   <script src="Your recipes.js"></script>
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-recipe-name"></h3>
+    <p id="modal-recipe-description"></p>
+  </div>
+
+</div>
+
 </body>
 
 </html>
