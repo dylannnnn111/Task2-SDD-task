@@ -113,3 +113,17 @@ footer {
   top: 0;
   right: 0;
 }
+<<<<<<< HEAD
+=======
+
+.recipe-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.recipe-card {
+  width: 30%;
+  margin: 1em;
+}
+>>>>>>> 3dc3ca2a569d2825126c0d28f5c0fbc9f5ca6c4f
