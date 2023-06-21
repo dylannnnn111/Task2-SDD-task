@@ -85,5 +85,27 @@ window.addEventListener('load', function() {
 
     recentRecipesContainer.appendChild(recipeCard);
   });
+    function storeRecipe() {
+      event.preventDefault();
+      var recipeName = document.getElementById('recipe-name').value;
+      var recipeDescription = document.getElementById('recipe-description').value;
+    
+      var recipe = {
+        name: recipeName,
+        description: recipeDescription
+      };
+    
+      if(localStorage.getItem('recipes') === null) {
+        localStorage.setItem('recipes', JSON.stringify([recipe]));
+      } else {
+        var existingRecipes = JSON.parse(localStorage.getItem('recipes'));
+        existingRecipes.push(recipe);
+        localStorage.setItem('recipes', JSON.stringify(existingRecipes));
+      }
+    
+      document.getElementById('recipe-name').value = "";
+      document.getElementById('recipe-description').value = "";
+    }
+  
 });
 
