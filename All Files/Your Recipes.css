@@ -128,3 +128,41 @@ footer {
     padding: 1rem;
     margin-top: 1rem;
   }
+
+  /* Add the following CSS rules */
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* "Your Recipes" button */
+  #expand-page-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px; 
+    cursor: pointer;
+  }
+  
+  #expand-page-button:hover {
+    opacity: 0.8;
+  }
+  

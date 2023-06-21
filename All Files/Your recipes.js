@@ -86,3 +86,4 @@ window.addEventListener('load', function() {
     recentRecipesContainer.appendChild(recipeCard);
   });
 });
+
