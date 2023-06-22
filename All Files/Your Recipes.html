@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Recipes</title>
   <link rel="stylesheet" href="Your Recipes.css">
+  <style>
+    /* Add any additional styles specific to the modal here */
+  </style>
 </head>
 
-<header>
-  <img src="Mealmateslogo.png" alt="Mealmates Logo" style="width: 160px; height: 100px;">
-  <h1>Your Recipes</h1>
-</header>
-
 <body>
+  <header>
+    <img src="Mealmateslogo.png" alt="Mealmates Logo" style="width: 160px; height: 100px;">
+    <h1>Your Recipes</h1>
+  </header>
+
   <nav>
     <ul>
       <li><a href="SDD Task 2.html">Home</a></li>
@@ -26,12 +29,8 @@
 
   <main>
     <section class="hero">
-      <h2>
-
-      </h2>
-      <p>
-
-      </p>
+      <h2></h2>
+      <p></p>
     </section>
   </main>
 
@@ -41,18 +40,22 @@
     <div class="recent-recipes">
       <!-- Recipe cards will be dynamically added here -->
     </div>
+
     <h2>Add Recipe</h2>
+
     <form id="add-recipe-form">
       <label for="recipe-name">Recipe Name:</label>
-      <input type="text" id="recipe-name" required>
-      <br>
+      <input type="text" id="recipe-name" required><br>
+
       <label for="recipe-description">Description:</label>
-      <textarea id="recipe-description" required></textarea>
-      <br>
+      <textarea id="recipe-description" required></textarea><br>
+
+      <label for="recipe-image">Upload an image:</label>
+      <input type="file" id="recipe-image" accept="image/*" required><br>
+      <img id="preview-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
+      
       <button type="submit">Add Recipe</button>
     </form>
-
-    <!-- Remove the Add Recipe and View Recipes buttons here -->
 
   </div>
 
@@ -61,17 +64,18 @@
   </footer>
 
   <script src="Your recipes.js"></script>
+
   <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 id="modal-recipe-name"></h3>
-    <p id="modal-recipe-description"></p>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-recipe-name"></h3>
+      <img id="modal-recipe-image" src="#" alt="Recipe Image" style="max-width: 200px; margin-top: 10px;">
+      <p id="modal-recipe-description"></p>
+      <br>
+    </div>
   </div>
-
-</div>
 
 </body>
 

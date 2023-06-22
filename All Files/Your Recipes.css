@@ -178,6 +178,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  
   cursor: pointer;
   margin-right: 10px; /* Add margin to the right of the delete button */
 }
@@ -259,3 +260,8 @@ button {
   cursor: pointer;
 }
 
+.recipe-card img {
+  max-width: 100%; /* Ensure the image fits inside the recipe card */
+  height: auto;
+  margin-bottom: 10px;
+}
