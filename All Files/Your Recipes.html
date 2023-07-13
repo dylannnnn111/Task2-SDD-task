@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Recipes</title>
   <link rel="stylesheet" href="Your Recipes.css">
-  <style>
-    /* Add any additional styles specific to the modal here */
-  </style>
 </head>
 
 <body>
@@ -57,6 +53,20 @@
       <button type="submit">Add Recipe</button>
     </form>
 
+    <form id="edit-recipe-form" style="display: none;">
+      <label for="edit-recipe-name">Recipe Name:</label>
+      <input type="text" id="edit-recipe-name" required><br>
+
+      <label for="edit-recipe-description">Description:</label>
+      <textarea id="edit-recipe-description" required></textarea><br>
+
+      <label for="edit-recipe-image">Upload an image:</label>
+      <input type="file" id="edit-recipe-image" accept="image/*" required><br>
+      <img id="preview-edit-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
+      
+      <button type="submit">Save Changes</button>
+      <button type="button" id="cancel-edit">Cancel</button>
+    </form>
   </div>
 
   <footer>
@@ -71,12 +81,15 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h3 id="modal-recipe-name"></h3>
-      <img id="modal-recipe-image" src="#" alt="Recipe Image" style="max-width: 200px; margin-top: 10px;">
       <p id="modal-recipe-description"></p>
-      <br>
+      <img id="modal-recipe-image" src="#" alt="Recipe Image">
+      <div class="buttons-container">
+        <button class="delete-button">Delete</button>
+        <button class="view-button">View Recipe</button>
+        <button class="edit-button">Edit Recipe</button>
+      </div>
     </div>
   </div>
-
 </body>
 
 </html>
