@@ -94,6 +94,17 @@ function saveRecipes() {
   localStorage.setItem('recipes', JSON.stringify(recipes));
 }
 
+// Function to save user inputs in local storage
+function saveUserInputs() {
+  const recipeNameInput = document.getElementById('recipe-name').value;
+  const recipeDescriptionInput = document.getElementById('recipe-description').value;
+  const recipeImageInput = document.getElementById('recipe-image').value;
+
+  localStorage.setItem('recipeNameInput', recipeNameInput);
+  localStorage.setItem('recipeDescriptionInput', recipeDescriptionInput);
+  localStorage.setItem('recipeImageInput', recipeImageInput);
+}
+
 // Add event listener for form submission
 addRecipeForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -135,15 +146,15 @@ addRecipeForm.addEventListener('submit', function(event) {
   deleteButton.className = 'delete-button';
   buttonContainer.appendChild(deleteButton);
 
-  const viewButton = document.createElement('button');
-  viewButton.textContent = 'View Recipe';
-  viewButton.className = 'view-button';
-  buttonContainer.appendChild(viewButton);
-
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit Recipe';
   editButton.className = 'edit-button';
   buttonContainer.appendChild(editButton);
+
+  const viewButton = document.createElement('button');
+  viewButton.textContent = 'View Recipe';
+  viewButton.className = 'view-button';
+  buttonContainer.appendChild(viewButton);
 
   recipeCard.appendChild(buttonContainer);
 
@@ -162,12 +173,15 @@ addRecipeForm.addEventListener('submit', function(event) {
 
   // Save the recipes in local storage
   saveRecipes();
+
+  // Save the user inputs in local storage
+  saveUserInputs();
 });
 
 // Add event listener for modal edit button
 document.getElementById('modal-edit-button').addEventListener('click', editRecipeFromModal);
 
-// Load saved recipes on page load
+// Load saved recipes and user inputs on page load
 window.addEventListener('load', function() {
   const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
   recipes.forEach(function(recipe) {
@@ -200,15 +214,15 @@ window.addEventListener('load', function() {
     deleteButton.className = 'delete-button';
     buttonContainer.appendChild(deleteButton);
 
-    const viewButton = document.createElement('button');
-    viewButton.textContent = 'View Recipe';
-    viewButton.className = 'view-button';
-    buttonContainer.appendChild(viewButton);
-
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit Recipe';
     editButton.className = 'edit-button';
     buttonContainer.appendChild(editButton);
+
+    const viewButton = document.createElement('button');
+    viewButton.textContent = 'View Recipe';
+    viewButton.className = 'view-button';
+    buttonContainer.appendChild(viewButton);
 
     recipeCard.appendChild(buttonContainer);
 
@@ -220,6 +234,15 @@ window.addEventListener('load', function() {
     // Add the recipe card to the recent-recipes container
     recentRecipesContainer.appendChild(recipeCard);
   });
+
+  // Load saved user inputs
+  const recipeNameInput = localStorage.getItem('recipeNameInput') || '';
+  const recipeDescriptionInput = localStorage.getItem('recipeDescriptionInput') || '';
+  const recipeImageInput = localStorage.getItem('recipeImageInput') || '';
+
+  document.getElementById('recipe-name').value = recipeNameInput;
+  document.getElementById('recipe-description').value = recipeDescriptionInput;
+  document.getElementById('recipe-image').value = recipeImageInput;
 });
 
 // Add JavaScript for the modal
@@ -240,15 +263,6 @@ function deleteRecipeFromModal() {
 // Add event listeners for modal close button and delete button
 span.onclick = closeModal;
 document.getElementById('modal-delete-button').addEventListener('click', deleteRecipeFromModal);
-
-// Add functionality to view button in the modal
-document.getElementById('modal-view-button').addEventListener('click', function(event) {
-  const recipeName = document.getElementById('modal-recipe-name').textContent;
-  const recipeDescription = document.getElementById('modal-recipe-description').textContent;
-  const recipeImageSrc = document.getElementById('modal-recipe-image').src;
-
-  window.open(`view.html?name=${encodeURIComponent(recipeName)}&description=${encodeURIComponent(recipeDescription)}&image=${encodeURIComponent(recipeImageSrc)}`, '_blank');
-});
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

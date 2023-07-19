@@ -7,6 +7,7 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
+  position: relative;
 }
 
 header {
@@ -24,6 +25,7 @@ nav {
   display: flex;
   justify-content: center;
   background-color: #333;
+  font-family: 'Raleway', Arial, sans-serif;
 }
 
 nav ul {
@@ -37,13 +39,17 @@ nav li {
 
 nav a {
   display: inline-block;
-  color: #fff;
+  color: #f1f1f1;
   text-decoration: none;
-  padding: 0.25rem 1rem;
+  padding: 1rem;
+  font-family: 'Raleway', Arial, sans-serif;
+  font-size: 1.2em;
+  transition: color 0.5s;
 }
 
 nav a:hover {
-  background-color: #555;
+  color: #f9f9f9;
+  text-decoration: underline;
 }
 
 .container {
@@ -136,7 +142,12 @@ footer {
 }
 
 .view-button {
-  display: none; /* Remove the View Recipe button */
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  order: 1; /* Switch order to 1 */
 }
 
 .delete-button {
@@ -145,23 +156,59 @@ footer {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 4px;
+  order: 2; /* Switch order to 2 */
 }
 
 #expand-page-button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
+  display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 46px;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  border: 3px solid seagreen;
+  color: seagreen;
+  font-size: 20px;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  overflow: hidden;
+  background: transparent;
+  text-transform: uppercase;
+  transition: all .35s;
+}
+
+#expand-page-button:before,
+#expand-page-button:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: seagreen;
+  z-index: -1;
+  transition: all .35s;
+}
+
+#expand-page-button:before {
+  opacity: .5;
+}
+
+#expand-page-button:after {
+  transition-delay: .2s;
 }
 
 #expand-page-button:hover {
-  opacity: 0.8;
+  color: #fff;
+  background-color: seagreen;
+}
+
+#expand-page-button:hover:before,
+#expand-page-button:hover:after {
+  top: 0;
 }
 
 .modal {
@@ -180,13 +227,7 @@ footer {
   background-color: #fff;
   margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 80%;
-  max-width: 600px;
-}
-
-.modal-content img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
