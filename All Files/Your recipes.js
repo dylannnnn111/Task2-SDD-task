@@ -5,20 +5,20 @@ const previewImage = document.getElementById('preview-image');
 
 // Function to close the modal
 function closeModal() {
-  const modal = document.getElementById('myModal');
+  const modal = document.getElementById('modal');
   modal.style.display = "none";
 }
 
 // Function to delete a recipe from the modal
-function deleteRecipeFromModal(event) {
+function deleteRecipeFromModal() {
   closeModal();
-  deleteRecipe(event);
+  deleteRecipe();
 }
 
 // Function to edit a recipe from the modal
-function editRecipeFromModal(event) {
+function editRecipeFromModal() {
   closeModal();
-  editRecipe(event);
+  editRecipe();
 }
 
 // Function to delete a recipe
@@ -43,26 +43,15 @@ function editRecipe(event) {
   window.scrollTo(0, 0);
 }
 
-// Function to view a recipe and show the modal
+// Function to view a recipe
 function viewRecipe(event) {
   const recipeCard = event.target.parentNode.parentNode;
   document.getElementById('modal-recipe-name').textContent = recipeCard.querySelector('h3').textContent;
   document.getElementById('modal-recipe-description').textContent = recipeCard.querySelector('p').textContent;
 
-  const modal = document.getElementById('myModal');
+  // Show the modal
+  const modal = document.getElementById('modal');
   modal.style.display = "block";
-
-  // Set up the delete button on the modal
-  const deleteButton = document.querySelector('.delete-button');
-  deleteButton.addEventListener('click', function(event) {
-    deleteRecipeFromModal(event);
-  });
-
-  // Set up the edit button on the modal
-  const editButton = document.querySelector('.edit-button');
-  editButton.addEventListener('click', function(event) {
-    editRecipeFromModal(event);
-  });
 }
 
 // Function to save recipes in local storage
@@ -174,9 +163,106 @@ recentRecipesContainer.addEventListener('click', function (event) {
     window.scrollTo(0, 0);
   } else if (target.classList.contains('view-button')) {
     // View button is clicked
-    viewRecipe(event);
+    const recipeCard = target.parentNode.parentNode;
+    document.getElementById('modal-recipe-name').textContent = recipeCard.querySelector('h3').textContent;
+    document.getElementById('modal-recipe-description').textContent = recipeCard.querySelector('p').textContent;
+
+    const modal = document.getElementById('myModal'); // Use the correct modal ID here
+    modal.style.display = "block";
+   // Function to close the modal
+function closeModal() {
+  const modal = document.getElementById('myModal');
+  modal.style.display = "none";
+}
+
+// Function to delete a recipe
+function deleteRecipe(event) {
+  const recipeCard = event.target.parentNode.parentNode;
+  recentRecipesContainer.removeChild(recipeCard);
+  saveRecipes();
+}
+
+// Function to edit a recipe
+function editRecipe(event) {
+  const recipeCard = event.target.parentNode.parentNode;
+  document.getElementById('recipe-name').value = recipeCard.querySelector('h3').textContent;
+  document.getElementById('recipe-description').value = recipeCard.querySelector('p').textContent;
+  document.getElementById('recipe-image').value = "";
+
+  // Remove the existing card after the data has been transferred
+  recentRecipesContainer.removeChild(recipeCard);
+  saveRecipes();
+
+  // Scroll to the top of the page
+  window.scrollTo(0, 0);
+}
+
+// Function to view a recipe
+function viewRecipe(event) {
+  const recipeCard = event.target.parentNode.parentNode;
+  document.getElementById('modal-recipe-name').textContent = recipeCard.querySelector('h3').textContent;
+  document.getElementById('modal-recipe-description').textContent = recipeCard.querySelector('p').textContent;
+
+  const modal = document.getElementById('myModal');
+  modal.style.display = "block";
+
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.className = 'delete-button';
+  deleteButton.addEventListener('click', deleteRecipeFromModal);
+
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit Recipe';
+  editButton.className = 'edit-button';
+  editButton.addEventListener('click', editRecipeFromModal);
+
+  const buttonsContainer = document.querySelector(".buttons-container");
+  buttonsContainer.innerHTML = '';
+  buttonsContainer.appendChild(deleteButton);
+  buttonsContainer.appendChild(editButton);
+}
+
+// Function to delete a recipe from the modal
+function deleteRecipeFromModal(event) {
+  deleteRecipe(event);
+  closeModal();
+}
+
+// Function to edit a recipe from the modal
+function editRecipeFromModal(event) {
+  editRecipe(event);
+  closeModal();
+}
+
+// Add event listener for the "x" button to close the modal
+document.querySelector(".close").addEventListener("click", closeModal);
+
+// Load saved recipes and user inputs on page load
+window.addEventListener('load', function() {
+  const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  recipes.forEach(function(recipe) {
+    // ... (your existing code for creating recipe cards)
+
+    // Add event listener for "View Recipe" button on the recipe card
+    viewButton.addEventListener('click', viewRecipe);
+
+    // ... (your existing code for adding the recipe card to the recent-recipes container)
+  });
+
+  // ... (your existing code for loading saved user inputs)
+});
+
+// Save the recipes when the page is about to be unloaded (refreshed or closed)
+window.addEventListener('beforeunload', function() {
+  saveRecipes();
+});
+
+
+// Add event listener for the "x" button to close the modal
+document.querySelector(".close").addEventListener("click", closeModal);
   }
 });
+
 
 // Load saved recipes and user inputs on page load
 window.addEventListener('load', function() {
@@ -247,3 +333,4 @@ window.addEventListener('load', function() {
 window.addEventListener('beforeunload', function() {
   saveRecipes();
 });
+

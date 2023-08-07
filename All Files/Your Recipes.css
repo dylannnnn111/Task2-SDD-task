@@ -1,7 +1,9 @@
 /* Your Recipes.css */
 
+/* Import the 'Raleway' font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
+/* Set general styles for the entire page */
 body {
   font-family: 'Raleway', Arial, sans-serif;
   margin: 0;
@@ -12,18 +14,21 @@ body {
   position: relative;
 }
 
+/* Styling for the header section */
 header {
   background-color: #ffffff;
   padding: 1rem;
   position: relative;
 }
 
+/* Styling for the h1 element inside the header */
 header h1 {
   color: #000000;
   text-align: center;
   margin: 0;
 }
 
+/* Styling for the navigation bar */
 nav {
   display: flex;
   justify-content: center;
@@ -31,15 +36,18 @@ nav {
   font-family: 'Raleway', Arial, sans-serif;
 }
 
+/* Styling for the unordered list inside the navigation bar */
 nav ul {
   padding: 0;
   list-style-type: none;
 }
 
+/* Styling for list items inside the navigation bar */
 nav li {
   display: inline;
 }
 
+/* Styling for anchor links inside the navigation bar */
 nav a {
   display: inline-block;
   color: #f1f1f1;
@@ -50,31 +58,37 @@ nav a {
   transition: color 0.5s;
 }
 
+/* Styling for anchor links when hovered */
 nav a:hover {
   color: #f9f9f9;
   text-decoration: underline;
 }
 
+/* Define a container for the content with margin */
 .container {
   margin: 20px;
 }
 
+/* Styling for h1 elements */
 h1 {
   color: #333;
   font-size: 28px;
   margin-bottom: 20px;
 }
 
+/* Styling for h2 elements */
 h2 {
   color: #333;
   font-size: 24px;
   margin-bottom: 10px;
 }
 
+/* Styling for the recent-recipes section */
 .recent-recipes {
   margin-top: 20px;
 }
 
+/* Styling for recipe cards */
 .recipe-card {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -84,26 +98,31 @@ h2 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for h3 elements inside recipe cards */
 .recipe-card h3 {
   margin: 0;
   font-size: 20px;
   color: #333;
 }
 
+/* Styling for paragraphs inside recipe cards */
 .recipe-card p {
   margin: 10px 0;
   color: #555;
 }
 
+/* Styling for the buttons container */
 .buttons-container {
   display: flex;
   justify-content: space-between;
 }
 
+/* Styling for the add-recipe form */
 #add-recipe-form {
   margin-top: 30px;
 }
 
+/* Styling for labels in the add-recipe form */
 #add-recipe-form label {
   display: block;
   font-weight: bold;
@@ -111,6 +130,7 @@ h2 {
   margin-bottom: 5px;
 }
 
+/* Styling for text inputs and textareas in the add-recipe form */
 #add-recipe-form input[type='text'],
 #add-recipe-form textarea {
   width: 100%;
@@ -121,6 +141,7 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Styling for the submit button in the add-recipe form */
 #add-recipe-form button[type='submit'] {
   padding: 10px 20px;
   background-color: #333;
@@ -129,6 +150,7 @@ h2 {
   border-radius: 4px;
 }
 
+/* Styling for the footer section */
 footer {
   padding: 1rem;
   background-color: #333;
@@ -136,6 +158,7 @@ footer {
   text-align: center;
 }
 
+/* Styling for the edit button */
 .edit-button {
   background-color: #3498db;
   color: #fff;
@@ -144,6 +167,7 @@ footer {
   border-radius: 4px;
 }
 
+/* Styling for the view button */
 .view-button {
   background-color: #2ecc71;
   color: #fff;
@@ -153,6 +177,7 @@ footer {
   order: 1; /* Switch order to 1 */
 }
 
+/* Styling for the delete button */
 .delete-button {
   background-color: #e74c3c;
   color: #fff;
@@ -162,7 +187,9 @@ footer {
   order: 2; /* Switch order to 2 */
 }
 
+/* Styling for the signup button in the top right corner */
 .signup-button {
+  /* Same as the previous signup-button styling, just repeated here for specificity */
   display: block;
   width: 250px;
   height: 50px;
@@ -183,6 +210,7 @@ footer {
   transition: all .35s;
 }
 
+/* Styling for the button animations in the signup button */
 .signup-button:before,
 .signup-button:after {
   position: absolute;
@@ -204,16 +232,21 @@ footer {
   transition-delay: .2s;
 }
 
+/* Styling for the signup button when hovered */
 .signup-button:hover {
+  /* Same as the previous signup-button hover styling, repeated here for specificity */
   color: #fff;
   background-color: seagreen;
 }
 
+/* Styling for the button animations in the signup button when hovered */
 .signup-button:hover:before,
 .signup-button:hover:after {
+  /* Same as the previous signup-button animations hover styling, repeated here for specificity */
   top: 0;
 }
 
+/* Styling for the modal */
 .modal {
   display: none;
   position: fixed;
@@ -226,6 +259,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Styling for the modal content */
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
@@ -237,6 +271,7 @@ footer {
 
 /* Add these rules to apply the same animation to buttons inside recipe cards */
 .recipe-card .button {
+  /* Same as the previous button styling, repeated here for specificity */
   display: block;
   width: 150px;
   height: 40px;
@@ -255,8 +290,10 @@ footer {
   transition: all .35s;
 }
 
+/* Add these rules to apply the same animation to buttons inside recipe cards */
 .recipe-card .button:before,
 .recipe-card .button:after {
+  /* Same as the previous button animations styling, repeated here for specificity */
   position: absolute;
   content: "";
   width: 100%;
@@ -276,22 +313,28 @@ footer {
   transition-delay: .2s;
 }
 
+/* Add these rules to apply the same animation to buttons inside recipe cards */
 .recipe-card .button:hover {
+  /* Same as the previous button hover styling, repeated here for specificity */
   color: #fff;
   background-color: seagreen;
 }
 
+/* Add these rules to apply the same animation to buttons inside recipe cards */
 .recipe-card .button:hover:before,
 .recipe-card .button:hover:after {
+  /* Same as the previous button animations hover styling, repeated here for specificity */
   top: 0;
 }
 
+/* Styling for the buttons container inside recipe cards */
 .buttons-container {
   display: flex;
   justify-content: flex-start;
   margin-top: 10px;
 }
 
+/* Styling for the edit button inside recipe cards */
 .edit-button,
 .view-button,
 .delete-button {
@@ -313,12 +356,14 @@ footer {
   transition: all .35s;
 }
 
+/* Styling for the button animations inside recipe cards */
 .edit-button:before,
 .view-button:before,
 .delete-button:before,
 .edit-button:after,
 .view-button:after,
 .delete-button:after {
+  /* Same as the previous button animations styling, repeated here for specificity */
   position: absolute;
   content: "";
   width: 100%;
@@ -330,30 +375,36 @@ footer {
   transition: all .35s;
 }
 
+/* Styling for the button animations inside recipe cards */
 .edit-button:before,
 .view-button:before,
 .delete-button:before {
   opacity: .5;
 }
 
+/* Styling for the button animations inside recipe cards */
 .edit-button:after,
 .view-button:after,
 .delete-button:after {
   transition-delay: .2s;
 }
 
+/* Styling for the edit button when hovered inside recipe cards */
 .edit-button:hover,
 .view-button:hover,
 .delete-button:hover {
+  /* Same as the previous button hover styling, repeated here for specificity */
   color: #fff;
   background-color: seagreen;
 }
 
+/* Styling for the button animations when hovered inside recipe cards */
 .edit-button:hover:before,
 .view-button:hover:before,
 .delete-button:hover:before,
 .edit-button:hover:after,
 .view-button:hover:after,
 .delete-button:hover:after {
+  /* Same as the previous button animations hover styling, repeated here for specificity */
   top: 0;
 }

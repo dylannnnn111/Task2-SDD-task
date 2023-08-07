@@ -1,5 +1,6 @@
 /* style.css */
 
+/* Set general styles for the entire page */
 body {
   font-family: 'Raleway', Arial, sans-serif;
   margin: 0;
@@ -9,23 +10,27 @@ body {
   background-color: #f9f9f9;
 }
 
+/* Define the container element and its position */
 .container {
   position: relative;
   width: 100%;
 }
 
+/* Styling for the header section */
 header {
   background-color: #ffffff;
   padding: 0.5rem;
   position: relative;
 }
 
+/* Styling for the header's h1 element */
 header h1 {
   color: #000000;
   text-align: center;
   margin: 0;
 }
 
+/* Styling for the navigation bar */
 nav {
   display: flex;
   justify-content: center;
@@ -33,15 +38,18 @@ nav {
   font-family: 'Raleway', Arial, sans-serif;
 }
 
+/* Styling for the unordered list inside the navigation bar */
 nav ul {
   padding: 0;
   list-style-type: none;
 }
 
+/* Styling for list items inside the navigation bar */
 nav li {
   display: inline;
 }
 
+/* Styling for anchor links inside the navigation bar */
 nav a {
   display: inline-block;
   color: #f1f1f1;
@@ -52,21 +60,25 @@ nav a {
   transition: color 0.5s;
 }
 
+/* Styling for anchor links when hovered */
 nav a:hover {
   color: #f9f9f9;
   text-decoration: underline;
 }
 
+/* Styling for the hero section */
 .hero {
   background-color: #f4f4f4;
   padding: 2rem;
   text-align: center;
 }
 
+/* Styling for the h2 element inside the hero section */
 .hero h2 {
   margin: 0;
 }
 
+/* Styling for the recipes section */
 .recipes {
   display: flex;
   justify-content: space-around;
@@ -75,6 +87,7 @@ nav a:hover {
   font-family: 'Raleway', Arial, sans-serif;
 }
 
+/* Styling for recipe cards */
 .recipe-card {
   background-color: #f4f4f4;
   padding: 1rem;
@@ -84,15 +97,18 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 
+/* Styling for images inside recipe cards */
 .recipe-card img {
   width: 100%;
   height: auto;
 }
 
+/* Styling for h3 elements inside recipe cards */
 .recipe-card h3 {
   margin: 0.5rem 0;
 }
 
+/* Styling for general buttons on the page */
 .button,
 .signup-button {
   display: block;
@@ -113,6 +129,7 @@ nav a:hover {
   transition: all .35s;
 }
 
+/* Styling for the button animations */
 .button:before,
 .button:after,
 .signup-button:before,
@@ -138,12 +155,14 @@ nav a:hover {
   transition-delay: .2s;
 }
 
+/* Styling for buttons when hovered */
 .button:hover,
 .signup-button:hover {
   color: #fff;
   background-color: seagreen;
 }
 
+/* Styling for button animations when hovered */
 .button:hover:before,
 .button:hover:after,
 .signup-button:hover:before,
@@ -151,11 +170,13 @@ nav a:hover {
   top: 0;
 }
 
+/* Styling for the about section */
 .about {
   padding: 2rem;
   text-align: center;
 }
 
+/* Styling for the footer section */
 footer {
   background-color: #333;
   color: #fff;
@@ -164,24 +185,29 @@ footer {
   margin-top: 1rem;
 }
 
+/* Styling for the recipe container */
 .recipe-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
+/* Styling for recipe cards in the recipe container */
 .recipe-card {
   width: 30%;
   margin: 1em;
 }
 
+/* Styling for the signup container */
 .signup-container {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
+/* Additional styling for the signup button */
 .signup-button {
+  /* Same as the previous signup-button styling, just repeated here for specificity */
   display: block;
   width: 250px;
   height: 50px;
@@ -200,8 +226,10 @@ footer {
   transition: all .35s;
 }
 
+/* Additional styling for the button animations in the signup container */
 .signup-button:before,
 .signup-button:after {
+  /* Same as the previous button animations styling, repeated here for specificity */
   position: absolute;
   content: "";
   width: 100%;
@@ -221,12 +249,16 @@ footer {
   transition-delay: .2s;
 }
 
+/* Additional styling for the signup button when hovered */
 .signup-button:hover {
+  /* Same as the previous button hover styling, repeated here for specificity */
   color: #fff;
   background-color: seagreen;
 }
 
+/* Additional styling for the button animations in the signup button when hovered */
 .signup-button:hover:before,
 .signup-button:hover:after {
+  /* Same as the previous button animations hover styling, repeated here for specificity */
   top: 0;
 }
