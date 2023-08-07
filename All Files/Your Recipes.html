@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,30 +43,30 @@
     <form id="add-recipe-form">
       <label for="recipe-name">Recipe Name:</label>
       <input type="text" id="recipe-name" required><br>
-
       <label for="recipe-description">Description:</label>
       <textarea id="recipe-description" required></textarea><br>
-
       <label for="recipe-image">Upload an image:</label>
       <input type="file" id="recipe-image" accept="image/*" required><br>
       <img id="preview-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
       
-      <button type="submit">Add Recipe</button>
+      <div class="buttons-container">
+        <button type="submit">Add Recipe</button>
+      </div>
     </form>
 
     <form id="edit-recipe-form" style="display: none;">
       <label for="edit-recipe-name">Recipe Name:</label>
       <input type="text" id="edit-recipe-name" required><br>
-
       <label for="edit-recipe-description">Description:</label>
       <textarea id="edit-recipe-description" required></textarea><br>
-
       <label for="edit-recipe-image">Upload an image:</label>
       <input type="file" id="edit-recipe-image" accept="image/*" required><br>
       <img id="preview-edit-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
       
-      <button type="submit">Save Changes</button>
-      <button type="button" id="cancel-edit">Cancel</button>
+      <div class="buttons-container">
+        <button type="submit">Save Changes</button>
+        <button type="button" id="cancel-edit">Cancel</button>
+      </div>
     </form>
   </div>
 
@@ -75,20 +76,21 @@
 
   <script src="Your recipes.js"></script>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modal-recipe-name"></h3>
-      <p id="modal-recipe-description"></p>
-      <img id="modal-recipe-image" src="#" alt="Recipe Image">
-      <div class="buttons-container">
-        <button class="delete-button">Delete</button>
-        <button class="edit-button">Edit Recipe</button>
-      </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-recipe-name"></h3>
+    <p id="modal-recipe-description"></p>
+    <img id="modal-recipe-image" src="#" alt="Recipe Image">
+    <div class="buttons-container">
+      <button class="delete-button">Delete</button>
+      <button class="edit-button">Edit Recipe</button>
     </div>
   </div>
+</div>
+
 </body>
 
 </html>

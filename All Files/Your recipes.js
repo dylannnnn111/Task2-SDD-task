@@ -3,6 +3,24 @@ const addRecipeForm = document.getElementById('add-recipe-form');
 const recentRecipesContainer = document.querySelector('.recent-recipes');
 const previewImage = document.getElementById('preview-image');
 
+// Function to close the modal
+function closeModal() {
+  const modal = document.getElementById('myModal');
+  modal.style.display = "none";
+}
+
+// Function to delete a recipe from the modal
+function deleteRecipeFromModal(event) {
+  closeModal();
+  deleteRecipe(event);
+}
+
+// Function to edit a recipe from the modal
+function editRecipeFromModal(event) {
+  closeModal();
+  editRecipe(event);
+}
+
 // Function to delete a recipe
 function deleteRecipe(event) {
   const recipeCard = event.target.parentNode.parentNode;
@@ -25,61 +43,26 @@ function editRecipe(event) {
   window.scrollTo(0, 0);
 }
 
-// Function to edit a recipe from the modal
-function editRecipeFromModal() {
-  const recipeName = document.getElementById('modal-recipe-name').textContent;
-  const recipeDescription = document.getElementById('modal-recipe-description').textContent;
-
-  document.getElementById('recipe-name').value = recipeName;
-  document.getElementById('recipe-description').value = recipeDescription;
-  document.getElementById('recipe-image').value = "";
-
-  // Find the corresponding recipe card and remove it
-  const recipeCards = Array.from(recentRecipesContainer.children);
-  for (let i = 0; i < recipeCards.length; i++) {
-    if (recipeCards[i].querySelector('h3').textContent === recipeName &&
-      recipeCards[i].querySelector('p').textContent === recipeDescription) {
-      recentRecipesContainer.removeChild(recipeCards[i]);
-      break;
-    }
-  }
-
-  // Close the modal
-  closeModal();
-
-  // Scroll to the top of the page
-  window.scrollTo(0, 0);
-
-  // Save the recipes in local storage after editing
-  saveRecipes();
-}
-
-// Function to view a recipe
+// Function to view a recipe and show the modal
 function viewRecipe(event) {
   const recipeCard = event.target.parentNode.parentNode;
   document.getElementById('modal-recipe-name').textContent = recipeCard.querySelector('h3').textContent;
   document.getElementById('modal-recipe-description').textContent = recipeCard.querySelector('p').textContent;
 
-  // Get the modal
-  var modal = document.getElementById("myModal");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // Show the modal
+  const modal = document.getElementById('myModal');
   modal.style.display = "block";
 
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+  // Set up the delete button on the modal
+  const deleteButton = document.querySelector('.delete-button');
+  deleteButton.addEventListener('click', function(event) {
+    deleteRecipeFromModal(event);
+  });
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  // Set up the edit button on the modal
+  const editButton = document.querySelector('.edit-button');
+  editButton.addEventListener('click', function(event) {
+    editRecipeFromModal(event);
+  });
 }
 
 // Function to save recipes in local storage
@@ -156,11 +139,6 @@ addRecipeForm.addEventListener('submit', function(event) {
 
   recipeCard.appendChild(buttonContainer);
 
-  // Add event listeners for delete, view, and edit buttons
-  deleteButton.addEventListener('click', deleteRecipe);
-  viewButton.addEventListener('click', viewRecipe);
-  editButton.addEventListener('click', editRecipe);
-
   // Add the recipe card to the recent-recipes container
   recentRecipesContainer.appendChild(recipeCard);
 
@@ -176,8 +154,29 @@ addRecipeForm.addEventListener('submit', function(event) {
   saveUserInputs();
 });
 
-// Add event listener for modal edit button
-document.getElementById('modal-edit-button').addEventListener('click', editRecipeFromModal);
+// Add event listener for click events on recentRecipesContainer (using event delegation)
+recentRecipesContainer.addEventListener('click', function (event) {
+  const target = event.target;
+
+  if (target.classList.contains('delete-button')) {
+    // Delete button is clicked
+    const recipeCard = target.parentNode.parentNode;
+    recentRecipesContainer.removeChild(recipeCard);
+    saveRecipes();
+  } else if (target.classList.contains('edit-button')) {
+    // Edit button is clicked
+    const recipeCard = target.parentNode.parentNode;
+    document.getElementById('recipe-name').value = recipeCard.querySelector('h3').textContent;
+    document.getElementById('recipe-description').value = recipeCard.querySelector('p').textContent;
+    document.getElementById('recipe-image').value = "";
+    recentRecipesContainer.removeChild(recipeCard);
+    saveRecipes();
+    window.scrollTo(0, 0);
+  } else if (target.classList.contains('view-button')) {
+    // View button is clicked
+    viewRecipe(event);
+  }
+});
 
 // Load saved recipes and user inputs on page load
 window.addEventListener('load', function() {
@@ -244,28 +243,7 @@ window.addEventListener('load', function() {
   document.getElementById('recipe-image').value = '';
 });
 
-// Add JavaScript for the modal
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
-
-// Function to close the modal
-function closeModal() {
-  modal.style.display = "none";
-}
-
-// Function to delete a recipe from the modal
-function deleteRecipeFromModal() {
-  closeModal();
-  deleteRecipe();
-}
-
-// Add event listeners for modal close button and delete button
-span.onclick = closeModal;
-document.getElementById('modal-delete-button').addEventListener('click', deleteRecipeFromModal);
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    closeModal();
-  }
-}
+// Save the recipes when the page is about to be unloaded (refreshed or closed)
+window.addEventListener('beforeunload', function() {
+  saveRecipes();
+});

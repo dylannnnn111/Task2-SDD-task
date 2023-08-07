@@ -1,3 +1,5 @@
+/* Your Recipes.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 body {
@@ -13,6 +15,7 @@ body {
 header {
   background-color: #ffffff;
   padding: 1rem;
+  position: relative;
 }
 
 header h1 {
@@ -159,7 +162,7 @@ footer {
   order: 2; /* Switch order to 2 */
 }
 
-#expand-page-button {
+.signup-button {
   display: block;
   width: 250px;
   height: 50px;
@@ -180,8 +183,8 @@ footer {
   transition: all .35s;
 }
 
-#expand-page-button:before,
-#expand-page-button:after {
+.signup-button:before,
+.signup-button:after {
   position: absolute;
   content: "";
   width: 100%;
@@ -193,21 +196,21 @@ footer {
   transition: all .35s;
 }
 
-#expand-page-button:before {
+.signup-button:before {
   opacity: .5;
 }
 
-#expand-page-button:after {
+.signup-button:after {
   transition-delay: .2s;
 }
 
-#expand-page-button:hover {
+.signup-button:hover {
   color: #fff;
   background-color: seagreen;
 }
 
-#expand-page-button:hover:before,
-#expand-page-button:hover:after {
+.signup-button:hover:before,
+.signup-button:hover:after {
   top: 0;
 }
 
@@ -230,4 +233,127 @@ footer {
   width: 80%;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add these rules to apply the same animation to buttons inside recipe cards */
+.recipe-card .button {
+  display: block;
+  width: 150px;
+  height: 40px;
+  line-height: 36px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50px;
+  border: 2px solid seagreen;
+  color: seagreen;
+  font-size: 16px;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  text-transform: uppercase;
+  transition: all .35s;
+}
+
+.recipe-card .button:before,
+.recipe-card .button:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: seagreen;
+  z-index: -1;
+  transition: all .35s;
+}
+
+.recipe-card .button:before {
+  opacity: .5;
+}
+
+.recipe-card .button:after {
+  transition-delay: .2s;
+}
+
+.recipe-card .button:hover {
+  color: #fff;
+  background-color: seagreen;
+}
+
+.recipe-card .button:hover:before,
+.recipe-card .button:hover:after {
+  top: 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.edit-button,
+.view-button,
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid seagreen;
+  color: seagreen;
+  font-size: 16px;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  text-transform: uppercase;
+  transition: all .35s;
+}
+
+.edit-button:before,
+.view-button:before,
+.delete-button:before,
+.edit-button:after,
+.view-button:after,
+.delete-button:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: seagreen;
+  z-index: -1;
+  transition: all .35s;
+}
+
+.edit-button:before,
+.view-button:before,
+.delete-button:before {
+  opacity: .5;
+}
+
+.edit-button:after,
+.view-button:after,
+.delete-button:after {
+  transition-delay: .2s;
+}
+
+.edit-button:hover,
+.view-button:hover,
+.delete-button:hover {
+  color: #fff;
+  background-color: seagreen;
+}
+
+.edit-button:hover:before,
+.view-button:hover:before,
+.delete-button:hover:before,
+.edit-button:hover:after,
+.view-button:hover:after,
+.delete-button:hover:after {
+  top: 0;
 }
