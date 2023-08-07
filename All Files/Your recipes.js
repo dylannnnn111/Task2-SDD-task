@@ -29,7 +29,6 @@ function editRecipe(event) {
 function editRecipeFromModal() {
   const recipeName = document.getElementById('modal-recipe-name').textContent;
   const recipeDescription = document.getElementById('modal-recipe-description').textContent;
-  const recipeImageSrc = document.getElementById('modal-recipe-image').src;
 
   document.getElementById('recipe-name').value = recipeName;
   document.getElementById('recipe-description').value = recipeDescription;
@@ -39,18 +38,20 @@ function editRecipeFromModal() {
   const recipeCards = Array.from(recentRecipesContainer.children);
   for (let i = 0; i < recipeCards.length; i++) {
     if (recipeCards[i].querySelector('h3').textContent === recipeName &&
-        recipeCards[i].querySelector('p').textContent === recipeDescription &&
-        recipeCards[i].querySelector('img').src === recipeImageSrc) {
+      recipeCards[i].querySelector('p').textContent === recipeDescription) {
       recentRecipesContainer.removeChild(recipeCards[i]);
       break;
     }
   }
 
   // Close the modal
-  document.getElementById("myModal").style.display = "none";
+  closeModal();
 
   // Scroll to the top of the page
   window.scrollTo(0, 0);
+
+  // Save the recipes in local storage after editing
+  saveRecipes();
 }
 
 // Function to view a recipe
@@ -58,7 +59,6 @@ function viewRecipe(event) {
   const recipeCard = event.target.parentNode.parentNode;
   document.getElementById('modal-recipe-name').textContent = recipeCard.querySelector('h3').textContent;
   document.getElementById('modal-recipe-description').textContent = recipeCard.querySelector('p').textContent;
-  document.getElementById('modal-recipe-image').src = recipeCard.querySelector('img').src;
 
   // Get the modal
   var modal = document.getElementById("myModal");
@@ -98,11 +98,9 @@ function saveRecipes() {
 function saveUserInputs() {
   const recipeNameInput = document.getElementById('recipe-name').value;
   const recipeDescriptionInput = document.getElementById('recipe-description').value;
-  const recipeImageInput = document.getElementById('recipe-image').value;
 
   localStorage.setItem('recipeNameInput', recipeNameInput);
   localStorage.setItem('recipeDescriptionInput', recipeDescriptionInput);
-  localStorage.setItem('recipeImageInput', recipeImageInput);
 }
 
 // Add event listener for form submission
@@ -171,10 +169,10 @@ addRecipeForm.addEventListener('submit', function(event) {
   recipeDescriptionInput.value = '';
   recipeImageInput.value = '';
 
-  // Save the recipes in local storage
+  // Save the recipes in local storage after adding
   saveRecipes();
 
-  // Save the user inputs in local storage
+  // Save the user inputs in local storage after adding
   saveUserInputs();
 });
 
@@ -236,13 +234,14 @@ window.addEventListener('load', function() {
   });
 
   // Load saved user inputs
-  const recipeNameInput = localStorage.getItem('recipeNameInput') || '';
-  const recipeDescriptionInput = localStorage.getItem('recipeDescriptionInput') || '';
-  const recipeImageInput = localStorage.getItem('recipeImageInput') || '';
+  const recipeNameInputValue = localStorage.getItem('recipeNameInput') || '';
+  const recipeDescriptionInputValue = localStorage.getItem('recipeDescriptionInput') || '';
 
-  document.getElementById('recipe-name').value = recipeNameInput;
-  document.getElementById('recipe-description').value = recipeDescriptionInput;
-  document.getElementById('recipe-image').value = recipeImageInput;
+  document.getElementById('recipe-name').value = recipeNameInputValue;
+  document.getElementById('recipe-description').value = recipeDescriptionInputValue;
+
+  // Clear the input field for recipe image since we don't store it directly in local storage.
+  document.getElementById('recipe-image').value = '';
 });
 
 // Add JavaScript for the modal
