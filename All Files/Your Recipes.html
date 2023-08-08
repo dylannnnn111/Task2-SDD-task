@@ -5,18 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Recipes</title>
+  <!-- Link to the 'Your Recipes.css' stylesheet -->
   <link rel="stylesheet" href="Your Recipes.css">
 </head>
 
 <body>
   <header>
+    <!-- Display the Mealmates logo -->
     <img src="Mealmateslogo.png" alt="Mealmates Logo" style="width: 160px; height: 100px;">
     <h1>Your Recipes</h1>
+    <!-- Link to the "signup.html" page with a signup button -->
     <a href="signup.html" class="signup-button">Sign Up</a>
   </header>
 
   <nav>
     <ul>
+      <!-- Navigation links -->
       <li><a href="SDD Task 2.html">Home</a></li>
       <li><a href="Recipes.html">Recipes</a></li>
       <li><a href="Your Recipes.html">Your Recipes</a></li>
@@ -26,11 +30,13 @@
 
   <main>
     <section class="hero">
+      <!-- Placeholder for a hero section with a heading and paragraph -->
       <h2></h2>
       <p></p>
     </section>
   </main>
 
+  <!-- A container for the main content -->
   <div class="container">
     <h1>Your Recipes</h1>
 
@@ -40,6 +46,7 @@
 
     <h2>Add Recipe</h2>
 
+    <!-- Form for adding a new recipe -->
     <form id="add-recipe-form">
       <label for="recipe-name">Recipe Name:</label>
       <input type="text" id="recipe-name" required><br>
@@ -49,11 +56,13 @@
       <input type="file" id="recipe-image" accept="image/*" required><br>
       <img id="preview-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
       
+      <!-- Container for buttons -->
       <div class="buttons-container">
         <button type="submit">Add Recipe</button>
       </div>
     </form>
 
+    <!-- Form for editing an existing recipe (hidden by default) -->
     <form id="edit-recipe-form" style="display: none;">
       <label for="edit-recipe-name">Recipe Name:</label>
       <input type="text" id="edit-recipe-name" required><br>
@@ -63,6 +72,7 @@
       <input type="file" id="edit-recipe-image" accept="image/*" required><br>
       <img id="preview-edit-image" src="#" alt="Preview" style="display: none; max-width: 200px; margin-top: 10px;"><br>
       
+      <!-- Container for buttons -->
       <div class="buttons-container">
         <button type="submit">Save Changes</button>
         <button type="button" id="cancel-edit">Cancel</button>
@@ -70,26 +80,30 @@
     </form>
   </div>
 
+  <!-- Footer section -->
   <footer>
     <p>&copy; 2023 Recipe Website</p>
   </footer>
 
+  <!-- Script tag to include the 'Your recipes.js' file -->
   <script src="Your recipes.js"></script>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 id="modal-recipe-name"></h3>
-    <p id="modal-recipe-description"></p>
-    <img id="modal-recipe-image" src="#" alt="Recipe Image">
-    <div class="buttons-container">
-      <button class="delete-button">Delete</button>
-      <button class="edit-button">Edit Recipe</button>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <!-- Close button for the modal -->
+      <span class="close">&times;</span>
+      <h3 id="modal-recipe-name"></h3>
+      <p id="modal-recipe-description"></p>
+      <img id="modal-recipe-image" src="#" alt="Recipe Image">
+      <div class="buttons-container">
+        <!-- Buttons inside the modal for delete and edit actions -->
+        <button class="delete-button">Delete</button>
+        <button class="edit-button">Edit Recipe</button>
+      </div>
     </div>
   </div>
-</div>
 
 </body>
 
